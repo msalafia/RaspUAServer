@@ -1,0 +1,19 @@
+{
+  "name": "raspuaserver",
+  "version": "1.0.0",
+  "description": "An OPC UA Server exposing variables from a Raspberry Pi model B",
+  "main": "sample_server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "opcua",
+    "raspberry",
+    "pi"
+  ],
+  "author": "Marco Giuseppe Salafia",
+  "license": "ISC",
+  "dependencies": {
+    "node-opcua": "^0.2.1"
+  }
+}
