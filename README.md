@@ -6,10 +6,13 @@ This server exposes in the address space an object rapresenting che current devi
 
 ---
 
-In order to run the server, clone the repository and open a terminal having current path (*pwd*) in the project folder. Be sure that Node.Js is instaled in your system. Finally, run the command:
+In order to run the server, clone the repository and open a terminal having current path (*pwd*) in the project folder. Be sure that Node.Js is instaled in your system. Finally, run the commands:
 
-`node sample_server.js`
+```
+npm install
+node sample_server.js
+```
 
 ---
 
-The server has been evaluated on a Raspberry Pi model B and the aim of future features is exposes information relevant the Raspberry itself, like CPU temperature or information retrieved by GPIO pins.
+The server has been evaluated on a Raspberry Pi model B. RaspUAServer can be run in all platform where Node.js is suported, but only on a Raspberry Pi a variable named CPU_Temperature will be exposed. 

@@ -1,6 +1,8 @@
+let os = require("os");
+
 let opcua = require("node-opcua");
 
-let util = require("./utility")
+let util = require("./utility");
 
 let server = new opcua.OPCUAServer({
     port: 4334,
@@ -50,6 +52,18 @@ server.initialize(() => {
                 })}
             }
         });
+
+        //add the following variable for a Raspberry only
+        if (["arm", "arm64"].indexOf(os.arch()) !== -1) {
+            addressSpace.addVariable({
+                componentOf: device,
+                browseName: "CPU_Temperature",
+                dataType: "Double",
+                value: {
+                    refreshFunc: util.getTemperatureAsync
+                }
+            });
+        }
     }
 
     build_my_address_space(server);
