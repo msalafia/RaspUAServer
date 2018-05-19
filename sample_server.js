@@ -28,7 +28,7 @@ server.initialize(() => {
 
         //add some variables
         addressSpace.addVariable({
-            componentOf: device,
+            propertyOf: device,
             browseName: "CPU_Architecture",
             dataType: "String",
             value: {
