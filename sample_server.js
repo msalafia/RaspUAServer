@@ -88,4 +88,5 @@ server.initialize(() => {
 
 process.on('SIGINT', function () {
     util.freeResources();
+    process.exit(0);
 });
