@@ -63,6 +63,16 @@ server.initialize(() => {
                     refreshFunc: util.getTemperatureAsync
                 }
             });
+
+            addressSpace.addVariable({
+                componentOf: device,
+                browseName: "RedLed",
+                dataType: "Boolean",
+                value: {
+                    get: util.getLedValue,
+                    set: util.setLedValue
+                }
+            });
         }
     }
 
@@ -74,4 +84,9 @@ server.initialize(() => {
         let endpointUrl = server.endpoints[0].endpointDescriptions()[0].endpointUrl;
         console.log("The primary server endpoint url is ", endpointUrl);
     });
+});
+
+process.on('SIGINT', function () {
+    util.freeResources();
+    process.exit(0);
 });

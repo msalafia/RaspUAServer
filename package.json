@@ -14,6 +14,7 @@
   "author": "Marco Giuseppe Salafia",
   "license": "ISC",
   "dependencies": {
-    "node-opcua": "^0.2.1"
+    "node-opcua": "^0.2.1",
+    "onoff": "^3.1.0"
   }
 }

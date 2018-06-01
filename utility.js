@@ -23,4 +23,29 @@ module.exports.getTemperatureAsync = function(callback) {
             callback(null, dataValue);
         }
     });
-} 
+}
+
+var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
+var LED = new Gpio(4, 'out');
+
+if (process.platform === "linux") {
+
+
+    
+}
+
+module.exports.getLedValue = function() {
+    return new opcua.Variant({ 
+        dataType: opcua.DataType.Boolean, 
+        value: LED.readSync() === 1
+    });
+}
+
+module.exports.setLedValue = function(variant) {
+    LED.writeSync(+variant.value);
+    return opcua.StatusCodes.Good;
+}
+
+module.exports.freeResources = function() {
+    LED.unexport();
+}
