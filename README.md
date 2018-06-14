@@ -10,6 +10,7 @@ This server exposes in the address space an object rapresenting che current devi
 - the status of the GPIO 4 (Pin 7 - i used it to turn on/off a LED);
 
 **NB: this application works only on a Raspberry Pi**
+
 ---
 
 In order to run the server, clone the repository and open a terminal having current path (*pwd*) in the project folder. Be sure that Node.Js is instaled in your system. Finally, run the commands:
