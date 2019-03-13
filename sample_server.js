@@ -18,16 +18,17 @@ server.initialize(() => {
     console.log("OPC UA Server initialized.");
 
     function build_my_address_space(server) {
-        let addressSpace = server.engine.addressSpace;
+        const addressSpace = server.engine.addressSpace;
+        const namespace = addressSpace.getOwnNamespace();
 
         //declare a new object
-        let device = addressSpace.addObject({
+        let device = namespace.addObject({
             organizedBy: addressSpace.rootFolder.objects,
             browseName: "MyDevice"
         });
 
         //add some variables
-        addressSpace.addVariable({
+        namespace.addVariable({
             propertyOf: device,
             browseName: "CPU_Architecture",
             dataType: "String",
@@ -41,7 +42,7 @@ server.initialize(() => {
             }
         });
 
-        addressSpace.addVariable({
+        namespace.addVariable({
             componentOf: device,
             browseName: "FreeMemory",
             dataType: "Double",
@@ -55,7 +56,7 @@ server.initialize(() => {
 
         //add the following variable for a Raspberry only
         if (["arm", "arm64"].indexOf(os.arch()) !== -1) {
-            addressSpace.addVariable({
+            namespace.addVariable({
                 componentOf: device,
                 browseName: "CPU_Temperature",
                 dataType: "Double",
@@ -64,7 +65,7 @@ server.initialize(() => {
                 }
             });
 
-            addressSpace.addVariable({
+            namespace.addVariable({
                 componentOf: device,
                 browseName: "RedLed",
                 dataType: "Boolean",
