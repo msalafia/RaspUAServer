@@ -6,7 +6,7 @@ let util = require("./utility");
 
 let server = new opcua.OPCUAServer({
     port: 4334,
-    resourcePath: "UA/RaspServer",
+    resourcePath: "/UA/RaspServer",
     buildInfo: {
         productName: "RaspUAServer1",
         buildNumber: "1",
